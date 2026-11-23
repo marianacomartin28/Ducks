@@ -1,0 +1,23 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Mallard Duck Movement",
+    "section": "",
+    "text": "This site explores GPS tracks from 52 mallards recorded between 2007 and 2017. The tracking data comes from the PPBDS tutorials repository.\nThe records center on Lake Constance (Bodensee), in Central Europe where Germany, Switzerland, and Austria meet. In these tracks, fixes cluster near the lake in autumn and winter, then extend farther north and east in spring and summer. Explore the locations on the Map page and the seasonal patterns on the Seasons page."
+  },
+  {
+    "objectID": "map.html",
+    "href": "map.html",
+    "title": "Map",
+    "section": "",
+    "text": "# A tibble: 52 × 2\n   duck_id                        n\n   &lt;chr&gt;                      &lt;int&gt;\n 1 2351 - Radolfzell JC 72052 20169\n 2 1806 - Radolfzell JC70792  10139\n 3 2318 - Radolfzell JC 72053  9522\n 4 2312 - Radolfzell JC 72051  7163\n 5 2497 - Radolfzell JC74415   4835\n 6 2339 - Radolfzell JC 72018  4645\n 7 2495 - Radolfzell JC74406   3030\n 8 2501 - Radolfzell JC74418   2861\n 9 2502 - Radolfzell JC74417   2715\n10 2489 - Radolfzell JC74412   2514\n# ℹ 42 more rows\n\n\n\n\n# A tibble: 1 × 4\n  min_latitude max_latitude min_longitude max_longitude\n         &lt;dbl&gt;        &lt;dbl&gt;         &lt;dbl&gt;         &lt;dbl&gt;\n1         47.3         53.9          7.83          23.6"
+  },
+  {
+    "objectID": "seasons.html",
+    "href": "seasons.html",
+    "title": "Seasons",
+    "section": "",
+    "text": "# A tibble: 12 × 3\n   month month_num     n\n   &lt;ord&gt;     &lt;dbl&gt; &lt;int&gt;\n 1 Jan           1  3266\n 2 Feb           2  4960\n 3 Mar           3  7524\n 4 Apr           4  6369\n 5 May           5  3423\n 6 Jun           6  2842\n 7 Jul           7  5748\n 8 Aug           8  9659\n 9 Sep           9 20977\n10 Oct          10  9890\n11 Nov          11  4825\n12 Dec          12  3796\n\n\n\n\n    Min.  1st Qu.   Median     Mean  3rd Qu.     Max.      NAs \n  0.0000   0.1000   0.2200   0.4156   0.4400 127.4500     2312 \n\n\n\n\nPicking joint bandwidth of 0.0381"
+  }
+]
