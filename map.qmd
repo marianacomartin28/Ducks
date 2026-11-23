@@ -1,0 +1,74 @@
+---
+title: "Map"
+---
+
+```{r}
+#| message: false
+library(tidyverse)
+library(sf)
+library(rnaturalearth)
+```
+
+```{r}
+#| cache: true
+mallards <- read_csv(
+  "data/mallards.csv",
+  col_types = cols(timestamp = col_character()),
+  show_col_types = FALSE
+) |>
+  mutate(
+    timestamp = ymd_hms(timestamp),
+    month = month(timestamp, label = TRUE),
+    month_num = month(timestamp),
+    year = year(timestamp),
+    season = case_when(
+      month_num %in% 3:5 ~ "Spring",
+      month_num %in% 6:8 ~ "Summer",
+      month_num %in% 9:11 ~ "Autumn",
+      month_num %in% c(12, 1, 2) ~ "Winter"
+    ),
+    season = factor(season, levels = c("Winter", "Spring", "Summer", "Autumn"))
+  )
+
+saveRDS(mallards, "data/mallards.rds")
+```
+
+```{r}
+mallards |>
+  count(duck_id, sort = TRUE)
+```
+
+```{r}
+mallards |>
+  summarise(
+    min_latitude = min(lat, na.rm = TRUE),
+    max_latitude = max(lat, na.rm = TRUE),
+    min_longitude = min(long, na.rm = TRUE),
+    max_longitude = max(long, na.rm = TRUE)
+  )
+```
+
+```{r}
+mallards_region <- mallards |>
+  filter(between(lat, 47, 55), between(long, 8, 25))
+
+countries <- ne_countries(scale = "medium", returnclass = "sf")
+
+ggplot() +
+  geom_sf(data = countries, fill = "gray95", color = "gray60") +
+  geom_point(
+    data = mallards_region,
+    aes(x = long, y = lat, color = duck_id),
+    alpha = 0.6,
+    size = 0.7
+  ) +
+  coord_sf(xlim = c(8, 25), ylim = c(47, 55), expand = FALSE) +
+  guides(color = "none") +
+  labs(
+    title = "Mallard GPS fixes",
+    x = "Longitude",
+    y = "Latitude",
+    color = "Duck"
+  ) +
+  theme_minimal()
+```
