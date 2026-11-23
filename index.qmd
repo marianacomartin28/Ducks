@@ -2,6 +2,6 @@
 title: "Mallard Duck Movement"
 ---
 
-This is a Quarto website.
+This site explores GPS tracks from 52 mallards recorded between 2007 and 2017. The tracking data comes from the [PPBDS tutorials repository](https://github.com/PPBDS/misc.tutorials/tree/main/inst/tutorials/ducks/data).
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+The records center on Lake Constance (Bodensee), in Central Europe where Germany, Switzerland, and Austria meet. In these tracks, fixes cluster near the lake in autumn and winter, then extend farther north and east in spring and summer. Explore the locations on the [Map](map.qmd) page and the seasonal patterns on the [Seasons](seasons.qmd) page.
